@@ -1,0 +1,3 @@
+hi : hello
+how are you? : neutral, i am just a bot
+when do I sell gme? : never, to the moon 🚀 🚀 🚀
