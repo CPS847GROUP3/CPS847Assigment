@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios')
 
+
+//Variables
 var SlackBot = require('slackbots');
 
 const app = express();
@@ -29,6 +31,8 @@ var bot = new SlackBot({
     name: 'Question Bot'
 });
 
+
+//Bot responses
 bot.on('message', (data) => {
     console.log(data);
     if(data.type !== 'message' || data.subtype == 'bot_message' ) {
