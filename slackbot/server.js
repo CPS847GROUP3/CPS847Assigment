@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios')
 
+// Closing Issue #15
 
 //Variables
 var SlackBot = require('slackbots');
