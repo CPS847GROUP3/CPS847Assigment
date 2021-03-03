@@ -104,4 +104,12 @@ app.get('/api/questionsAndAnswers', (req, res) => {
 });
 
 
+app.get('/', (req,res) => {
+
+    let s = "<h1>Why are you looking at this on a webpage?</h1><br>"
+    s+= "It's listening on port " + port
+    res.send(s)
+
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
