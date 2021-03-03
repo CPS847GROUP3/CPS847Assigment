@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios')
 
 
-//Variables
+//Variable
 var SlackBot = require('slackbots');
 
 const app = express();
