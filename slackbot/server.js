@@ -44,7 +44,9 @@ bot.on('message', (data) => {
 
 var channelName = 'random';
 
+var echoMode = false;
 function handleMessage(message) {
+    var mSaved = message;
     message = message.toLowerCase();
     if (message.includes('/help')) {
         botResponse('Can either retrieve weather data by calling: "get weather at: <city>" or try to have a conversation with it and see if it responds');
@@ -53,7 +55,18 @@ function handleMessage(message) {
         console.log(message);
         let skipTo = message.indexOf('get weather at') + 'get weather at'.length;
         weatherResponse(message.slice(skipTo));
-    } else {
+    }
+    else if (message.includes('toggle echo')){
+        echoMode = !echoMode;
+        let m = "";
+        if (echoMode){ m = "Echo mode enabled.";} else {m = "Echo mode disabled.";}
+        return botResponse(m);
+    }   
+    else {
+        if(echoMode){
+            return botResponse(mSaved);
+        }
+
         let response = questionsAndAnswers.filter(questionAndAnswer => message.includes(questionAndAnswer.question.toLowerCase()));
 
         if (response.length > 0) {
@@ -61,6 +74,9 @@ function handleMessage(message) {
         } 
     }
 }
+
+
+
 
 function botResponse(response) {  
     var params = {
